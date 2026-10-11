@@ -1,0 +1,163 @@
+/* Be Kind, Rewind - Hands-On Lab 7.0 */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Special+Elite&display=swap');
+
+:root {
+  --black: #0a0a0a;
+  --charcoal: #1a1a1a;
+  --red: #cc0000;
+  --white: #f0ece4;
+  --grey: #888;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Special Elite', 'Courier New', monospace;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #000;
+  border-bottom: 2px solid var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo { height: 50px; width: auto; }
+
+.site-header ul { display: flex; gap: 1.5rem; list-style: none; }
+
+.site-header a {
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.site-header a:hover { color: var(--red); }
+
+/* Sections */
+main section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero h1 { font-size: 3rem; line-height: 1.1; margin: 0.3rem 0 1rem; }
+
+.hero img { border: 2px solid var(--red); }
+
+.tag { color: var(--red); text-transform: uppercase; font-size: 0.8rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--red);
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover { background: transparent; color: var(--red); }
+
+.btn-outline { background: transparent; color: var(--red); }
+.btn-outline:hover { background: var(--red); color: var(--white); }
+
+/* About */
+.about h3 { margin: 1.5rem 0 0.5rem; color: var(--red); }
+
+.reasons { list-style: none; }
+.reasons li { padding: 0.4rem 0 0.4rem 1.2rem; border-left: 2px solid var(--red); margin-bottom: 0.5rem; }
+
+.divider { margin-top: 2rem; opacity: 0.85; }
+
+/* Shelf with hover effect */
+.hint { color: var(--grey); margin-bottom: 1rem; }
+
+.tapes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.tape {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--charcoal);
+  transition: border-color 0.3s;
+}
+
+.tape img { transition: transform 0.4s; }
+
+.tape figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.88);
+  border-top: 2px solid var(--red);
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.tape figcaption h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+.tape figcaption p { font-size: 0.9rem; }
+
+.tape:hover { border-color: var(--red); }
+.tape:hover img { transform: scale(1.05); }
+.tape:hover figcaption { transform: translateY(0); }
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 2px solid var(--red);
+  color: var(--grey);
+  font-size: 0.85rem;
+}
+
+/* Small screens */
+@media (max-width: 700px) {
+  .hero, .tapes { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.2rem; }
+  .site-header ul { gap: 0.8rem; }
+}
